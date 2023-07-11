@@ -1,31 +1,13 @@
 function AnimeCard(props) {
-    return (
-      <div className="container py-12">
-        <table className=" table-auto">
-          <thead>
-            <th className="border border-slate-500">{props.anime.name}</th>
-          </thead>
-          <tbody>
-            <tr>
-              <td className="border border-slate-300">{props.anime.poster}
-              </td>
-            </tr>
-            <tr>
-              <td className=" border border-slate-300">{props.anime.category}</td>
-            </tr>
-            <tr>
-              <td className=" border border-slate-300 ">{props.anime.rating}</td>
-            </tr>
-            <tr>
-              <td className=" border border-slate-300 ">
-                {props.anime.publisher}
-              </td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-    );
-  }
-  
-  export default AnimeCard;
-  
+  return (
+    <div>
+      <h4>{props.anime.name}</h4>
+      <p>{props.anime.poster} </p>
+      <p>{props.anime.category}</p>
+      <p>{props.anime.rating}</p>
+      <p>{props.anime.publisher} </p>
+    </div>
+  );
+}
+
+export default AnimeCard;

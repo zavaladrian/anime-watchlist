@@ -1,97 +1,24 @@
-import './App.css'
-import AnimeCard from './components/AnimeCard'
+import { useState } from "react";
+import { TEST_ANIMES } from "./TEST_ANIMES";
+import HomePage from "./components/HomePage";
+import RandomAnime from "./components/RandomAnime";
+import { Link, Route, Routes } from "react-router-dom";
 
-const animeList = [
-  {
-    id: 0,
-    name: "Demon Slayer",
-    poster: 'Demon',
-    rating: "TV-14",
-    category: "Action",
-    publisher: "Aniplex",
-  },
-  {
-    id: 1,
-    name: "Attack on Titan",
-    poster: 'Hunter',
-    rating: "TV-MA",
-    category: "Action",
-    publisher: "Wit Studio",
-  },
-  {
-    id: 2,
-    name: "Vinland Saga",
-    poster: 'Vinland',
-    rating: "Tv-MA",
-    category: "Action",
-    publisher: "Wit Studio",
-  },
-  {
-    id: 3,
-    name: "Black Clover",
-    poster: 'Clover',
-    rating: "TV-PG",
-    category: "Action",
-    publisher: "Pierrot",
-  },
-  {
-    id: 4,
-    name: "Heavenly Delusion",
-    poster: 'Heavenly', 
-    rating: "TV_MA",
-    category: "Mystery",
-    publisher: "Production I.G.",
-  },
-  {
-    id: 5,
-    name: "Jujutsu Kaisen",
-    poster: 'Jujutsu',
-    rating: "TV-MA",
-    category: "Action",
-    publisher: "TOHO animation",
-  },
-  {
-    id: 6,
-    name: "Naruto",
-    poster:' Naruto',
-    rating: "TV-PG",
-    category: "Action",
-    publisher: "Pierrot", 
-  },
-  {
-    id: 7,
-    name: "My Hero Academia",
-    poster: 'Hero',
-    rating: "TV-14",
-    category: "Action",
-    publisher: "Bones",
-  },
-  {
-    id: 8,
-    name: "Hunter x Hunter",
-    poster: 'Hunter',
-    rating: "TV-14",
-    category: "Action",
-    publisher: "Madhouse",
-  },
- {
-    id: 9,
-    name: "Naruto: Shippuden",
-    poster: 'Shippuden',
-    rating: "TV-PG",
-    category: "Adventure",
-    publisher: "Pierrot",
-  },
-    
-  ]
-  
-function App () {
-    return (
-        <div>
-            <h1>Anime List</h1>
-             { animeList.map( a => <AnimeCard anime = {a} /> ) }
-        </div>
-    )
+
+function App() {
+  const [animesList, setAnimesLists]= useState( TEST_ANIMES )
+
+  return (
+    <div>
+      <h1 className=" text-orange-500 text-6xl">Anime List</h1>
+      <Link to="/" type="button" className=" rounded bg-blue-300 me-3 px-2">Home</Link>
+      <Link to="/random" type="button" className=" rounded bg-blue-300 px-1 ">Random</Link>
+        <Routes>
+          <Route path="/" element={ <HomePage animesList={animesList} />} />
+          <Route path="/random" element={ <RandomAnime animesList={animesList} />}/>
+        </Routes>      
+    </div>
+  );
 }
 
-export default App
+export default App;
