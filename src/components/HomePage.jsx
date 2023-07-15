@@ -13,7 +13,7 @@ export default function HomePage({ animesList}) {
   }
 
   return (
-    <div>
+    <div className='px-5 py-14'>
       <div>
         <button
           type="button"
