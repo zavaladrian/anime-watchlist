@@ -15,7 +15,7 @@ export default function FilterPage({animesList}) {
 
   return (
     
-      <div className= " text-center row-auto inset-0">
+      <div className= "  text-center row-auto inset-0">
         <h2> Filter By Ratings! </h2>
         <button
           type="button"
@@ -35,9 +35,9 @@ export default function FilterPage({animesList}) {
           className="rounded bg-indigo-600 py-1 text-l font-semibold text-white shadow-sm hover:bg-orange-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 me-2 px-24"
           onClick={() => setRatingFilter("TV-MA")}>TV-MA</button>
        
-       
+       <div className='grid grid-cols-2'>
        { filteredAnimes.map( a => <AnimeCard anime={a} />)} 
-      
+       </div>
     </div>
   );
 }

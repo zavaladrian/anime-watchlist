@@ -17,7 +17,7 @@ export default function AnimesPage({animesList}) {
             <br />
             <img src={animes.poster} alt={animes.name} />
             <p className='text-5xl bg-black bg-opacity-50 text-white'>{ animes.text }</p>
-            <p className='text-3xl'>This show has a { animes.rating } rating </p>
+            <p className='text-3xl text-opacity-80'>This show has a { animes.rating } rating </p>
         </div>
     )
 }  

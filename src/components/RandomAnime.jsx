@@ -16,6 +16,8 @@ export default function RandomAnime({ animesList }) {
       <br />
       <br />
       <p className="text-2xl">{randomAnime.text}</p>
+
+      <button type="button" onClick={() => window.location.reload(true)}>Try Again!</button>
     </div>
   );
 }

@@ -7,6 +7,7 @@ import Heavenly from '../assets/img/heavenlydelusion.jpg'
 import Jujutsu from '../assets/img/jujutsukaisen.jpg'
 import Hero from '../assets/img/heroacademia.jpg'
 import Shippuden from '../assets/img/shippuden.jpg'
+import Attack from '../assets/img/AoT.jpg'
 
 
 
@@ -16,14 +17,14 @@ export const TEST_ANIMES = [
       name: "Demon Slayer",
       poster: Demon,
       rating: "TV-14",
-      category: "Action",
+      categories: ["Action", "Adventure"], 
       publisher: "Aniplex",
       text:  'A family is attacked by demons and only two members survive - Tanjiro and his sister Nezuko, who is turning into a demon slowly. Tanjiro sets out to become a demon slayer to avenge his family and cure his sister.',
     },
     {
       id: 1,
       name: "Attack on Titan",
-      poster: Hunter,
+      poster: Attack,
       rating: "TV-MA",
       category: "Action",
       publisher: "Wit Studio",

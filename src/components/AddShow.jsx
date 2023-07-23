@@ -1,7 +1,33 @@
+import { useDispatch } from "react-redux";
 
 
 export default function AddShow ()  {
-    return (
+  // const dispatch = useDispatch();
+  // const watchList = useSelector((state) =>{return state.shows});
+
+  // const handleShowAdd = (show) => {
+  //     dispatch(addShow(show))
+  // } 
+  // const handleShowRemove = (show) => {
+
+ // }
+//  // const renderedShows = watchList.map((song) => {
+//   return (
+//     <li key={show}>
+//       {show}
+//       <button
+//          type= "button"
+//         onClick={() => handleShowRemove(show)}
+//         className=""
+//       >
+//         X
+//       </button>
+//     </li>
+//   );
+// });
+  
+  
+  return (
     <form>
     <div className='space-y-12 sm:space-y-16 bg-white'>
     <div>
@@ -26,6 +52,9 @@ export default function AddShow ()  {
                     className="block flex-1 border-0 bg-transparent py-1.5 pl-1 text-gray-900 placeholder:text-gray-400 focus:ring-0 sm:text-sm sm:leading-6"
                     placeholder="Naruto"
                   />
+              {/* <button type= "button" onClick={() => handleShowAdd() } ></button> */}
+
+
               </div>
               </div>
           </div>
