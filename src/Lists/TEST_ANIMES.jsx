@@ -1,12 +1,12 @@
-import Demon from './img/demonslayer.jpg'
-import Hunter from './img/huntert.jpg'
-import Naruto from './img/narutoo.jpg'
-import Vinland from './img/vinlandsaga.jpg'
-import Clover from './img/blackclover.jpg'
-import Heavenly from './img/heavenlydelusion.jpg'
-import Jujutsu from './img/jujutsukaisen.jpg'
-import Hero from './img/heroacademia.jpg'
-import Shippuden from './img/shippuden.jpg'
+import Demon from '../assets/img/demonslayer.jpg'
+import Hunter from '../assets/img/huntert.jpg'
+import Naruto from '../assets/img/narutoo.jpg'
+import Vinland from '../assets/img/vinlandsaga.jpg'
+import Clover from '../assets/img/blackclover.jpg'
+import Heavenly from '../assets/img/heavenlydelusion.jpg'
+import Jujutsu from '../assets/img/jujutsukaisen.jpg'
+import Hero from '../assets/img/heroacademia.jpg'
+import Shippuden from '../assets/img/shippuden.jpg'
 
 
 

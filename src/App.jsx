@@ -1,14 +1,15 @@
 import Navbar from "./components/Navbar";
 import Header from "./components/Header";
+import Footer from "./components/Footer";
 
 
 function App() {
   
-
   return (
-    <div className='bg-gradient-to-b from-indigo-500 via-purple-500 to-pink-500'>
+    <div>
       <Header />
-      <Navbar />   
+      <Navbar />
+      <Footer className=' bottom-auto fixed' />   
     </div>
   );
 }
