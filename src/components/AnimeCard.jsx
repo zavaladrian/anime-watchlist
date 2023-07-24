@@ -1,9 +1,7 @@
 import { Link } from "react-router-dom";
 
-
 function AnimeCard(props) {
-
-  const animes = props.anime
+  const animes = props.anime;
 
   return (
     <div className=" m-24 rounded-md py-2 my-5">
@@ -23,25 +21,26 @@ function AnimeCard(props) {
             <dd>{animes.rating}</dd>
             <dd>{animes.publisher}</dd>
           </dl>
+          <div className='justify-between text-center space-x-4 space-y-4 '>
           <Link
             to={"/anime/" + animes.id}
             type="button"
-            className="rounded-full bg-blue-300 hover:bg-blue-700 shadow-lg shadow-blue-500/50 justify-between"
+            className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full"
             aria-label={`More details about ${animes.name}`}
             role="button"
           >
             <p className="text-center">Details</p>
           </Link>
           <Link
-            to={"/watchlist/" }
+            to={"/watchlist/"}
             type="button"
-            className="rounded-full bg-blue-300 hover:bg-blue-700 shadow-lg shadow-blue-500/50 justify-between me-6 px-2"
+            className="bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded"
             aria-label={`Your Watchlist`}
-            role="button" 
+            role="button"
           >
             <p className="text-center">Add</p>
           </Link>
-
+          </div>
         </div>
       </li>
     </div>
