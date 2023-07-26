@@ -1,13 +1,12 @@
 
-import { useDispatch } from "react-redux"
-import AddShow from "../components/AddShow"
-//import { addShow } from "../watchlist/watchListSlice"
+import AddShowForm from "../components/AddShowForm"
+
 
 export default function WatchListPage () {
 
     return(
     <container>
-       <AddShow />
+       <AddShowForm></AddShowForm>
     </container>
 )
 }
