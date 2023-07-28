@@ -2,11 +2,13 @@
 import AddShowForm from "../components/AddShowForm"
 
 
-export default function WatchListPage () {
+export default function WatchListPage ({AddShowForm}) {
 
     return(
     <container>
-       <AddShowForm></AddShowForm>
+       <AddShowForm>
+            
+       </AddShowForm>
     </container>
 )
 }
