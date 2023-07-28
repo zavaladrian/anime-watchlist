@@ -3,7 +3,7 @@ import { useDispatch } from "react-redux";
 import { Formik, Field, Form } from "formik";
 import { addShow } from "../watchlist/watchListSlice";
 
-const AddShowForm = ({}) => {
+const AddShowForm = () => {
   const [showModal, setShowModal] = useState(false);
   const dispatch = useDispatch();
   const handleSubmit = (values) => {
@@ -45,7 +45,7 @@ const AddShowForm = ({}) => {
                   </button>
                 </div>
 
-                {/*body*/}
+              
 
                 <Formik
                   initialValues={{
@@ -59,7 +59,7 @@ const AddShowForm = ({}) => {
                 >
                   <Form>
                     <div className="relative p-6 flex-auto">
-                      <p className="my-4 text-slate-500 text-lg leading-relaxed">
+                      <p className="my-4 text-slate-500 text-lg leading-relaxed"> </p>
                         <div className="space-y-12 sm:space-y-16 bg-white">
                           <div>
                             <p className="mt-1 max-w-2xl text-sm leading-6 text-gray-600">
@@ -162,10 +162,10 @@ const AddShowForm = ({}) => {
                             </div>
                           </div>
                         </div>
-                      </p>
+                      
                     </div>
                  
-                {/*footer*/}
+           
                 <div className="flex items-center justify-end p-6 border-t border-solid border-slate-200 rounded-b">
                   <button
                     className="text-red-500 background-transparent font-bold uppercase px-6 py-2 text-sm outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
@@ -177,7 +177,8 @@ const AddShowForm = ({}) => {
                   <button
                     className="bg-emerald-500 text-white active:bg-emerald-600 font-bold uppercase text-sm px-6 py-3 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
                     type="button"
-                    onClick={(handleSubmit) => setShowModal(false)}
+                    onSubmit={(handleSubmit)}
+                    onClick={() => setShowModal(false)}
                   >
                     Add Show
                   </button>

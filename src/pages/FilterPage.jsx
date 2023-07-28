@@ -36,7 +36,7 @@ export default function FilterPage({animesList}) {
           onClick={() => setRatingFilter("TV-MA")}>TV-MA</button>
        
        <div className='grid grid-cols-2'>
-       { filteredAnimes.map( a => <AnimeCard anime={a} />)} 
+       { filteredAnimes.map( a => <AnimeCard anime={a} key={a.id} />)} 
        </div>
     </div>
   );
