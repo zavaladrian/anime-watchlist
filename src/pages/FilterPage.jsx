@@ -14,30 +14,45 @@ export default function FilterPage({animesList}) {
   }
 
   return (
-    
-      <div className= "  text-center row-auto inset-0">
-        <h2> Filter By Ratings! </h2>
+    <div className="text-center row-auto inset-0">
+      <h2>Filter By Ratings!</h2>
+
+      <div className="flex justify-center flex-wrap"> {/* Apply flex and flex-wrap */}
         <button
           type="button"
-          className=" justify-center rounded bg-indigo-600  py-1 text-l font-semibold text-white shadow-sm hover:bg-orange-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 me-2 px-24"
-          onClick={() => setRatingFilter("All")}>All</button>
-        <button
-          type="button"
-          className="rounded bg-indigo-600  py-1 text-l font-semibold text-white shadow-sm hover:bg-orange-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 me-2 px-24"
-          onClick={() => setRatingFilter("TV-PG")}>TV-PG
+          className="rounded bg-indigo-600 py-1 text-l font-semibold text-white shadow-sm hover:bg-orange-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 me-2 px-8 sm:px-12"
+          onClick={() => setRatingFilter("All")}
+        >
+          All
         </button>
         <button
           type="button"
-          className="rounded bg-indigo-600  py-1 text-l font-semibold text-white shadow-sm hover:bg-orange-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 me-2 px-24"
-          onClick={() => setRatingFilter("TV-14")}>TV-14</button>
+          className="rounded bg-indigo-600 py-1 text-l font-semibold text-white shadow-sm hover:bg-orange-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 me-2 px-8 sm:px-12"
+          onClick={() => setRatingFilter("TV-PG")}
+        >
+          TV-PG
+        </button>
         <button
           type="button"
-          className="rounded bg-indigo-600 py-1 text-l font-semibold text-white shadow-sm hover:bg-orange-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 me-2 px-24"
-          onClick={() => setRatingFilter("TV-MA")}>TV-MA</button>
-       
-       <div className='grid lg:grid-cols-2 md:grid-cols-2 sm:gril-cols-1'>
-       { filteredAnimes.map( a => <AnimeCard anime={a} key={a.id} />)} 
-       </div>
+          className="rounded bg-indigo-600 py-1 text-l font-semibold text-white shadow-sm hover:bg-orange-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 me-2 px-8 sm:px-12"
+          onClick={() => setRatingFilter("TV-14")}
+        >
+          TV-14
+        </button>
+        <button
+          type="button"
+          className="rounded bg-indigo-600 py-1 text-l font-semibold text-white shadow-sm hover:bg-orange-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 me-2 px-8 sm:px-12"
+          onClick={() => setRatingFilter("TV-MA")}
+        >
+          TV-MA
+        </button>
+      </div>
+
+      <div className="grid lg:grid-cols-2 md:grid-cols-2 sm:grid-cols-1">
+        {filteredAnimes.map((a) => (
+          <AnimeCard anime={a} key={a.id} />
+        ))}
+      </div>
     </div>
   );
 }

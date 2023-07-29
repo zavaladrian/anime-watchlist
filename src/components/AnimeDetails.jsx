@@ -1,18 +1,21 @@
 const AnimeDetails = (props) => {
-    const anime = props.anime;
-    return (
-      <>
-      <h4 className="mt-1 text-xl font-medium text-gray-900">
-        {anime.name}
-      </h4>
+  const anime = props.anime;
+  return (
+    
+      <table className="table-auto">
+    <thead className="mt-1 text-xl font-medium text-gray-900">
+      {anime.name}
+    </thead>
+    <tbody className="mt-1 flex flex-grow flex-col justify-between">
+      <td>{anime.rating}</td>
+      <td>{anime.publisher}</td>
+      <td>{anime.aboutText}</td>
+    
+    </tbody>
+    
+    </table>
   
-      <dl className="mt-1 flex flex-grow flex-col justify-between">
-        {/* <dd>{anime.category}</dd> */}
-        <dd>{anime.rating}</dd>
-        <dd>{anime.publisher}</dd>
-      </dl>
-    </>
-    );
-  };
-  
-  export default AnimeDetails;
+  );
+};
+
+export default AnimeDetails;

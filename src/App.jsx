@@ -11,7 +11,8 @@ import HomePage from "./pages/HomePage";
 import { useReducer, useState } from "react";
 import reducer from "./watchlist/reducer";
 
-const WATCHLIST_ANIMES = [];
+const WATCHLIST_ANIMES = [
+];
 
 function App() {
   const [watchlistAnimes, dispatch] = useReducer(reducer, WATCHLIST_ANIMES)
