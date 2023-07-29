@@ -1,3 +1,12 @@
-import { createAction } from "@reduxjs/toolkit";
+const ACTIONS = {
+    ADD_WATCHLIST_ANIME: 'addWatchlistAnime',
+};
 
-export const reset = createAction("app/reset");
+const addWatchlistAnime = (anime) => {
+    return {
+        type: ACTIONS.ADD_WATCHLIST_ANIME,
+        payload: { anime }
+    };
+};
+
+export { ACTIONS, addWatchlistAnime };

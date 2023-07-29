@@ -1,22 +1,18 @@
 import { useState } from "react";
-import { useDispatch } from "react-redux";
 import { Formik, Field, Form } from "formik";
-import { addShow } from "../watchlist/watchListSlice";
+import { addWatchlistAnime } from "../watchlist/actions";
 
-const AddShowForm = () => {
+const AddShowForm = ({ dispatch }) => {
   const [showModal, setShowModal] = useState(false);
-  const dispatch = useDispatch();
   const handleSubmit = (values) => {
-    const comment = {
-      name: values.name,
-      rating: values.rating,
-      category: values.categories,
+    const anime = {
+      name: values.name || 'Untitled',
+      rating: values.rating || 'NR',
       publisher: values.publisher,
-      text: values.showText,
+      aboutText: values.aboutText,
     };
-    console.log(comment);
-    dispatch(addShow(comment));
-    setModalOpen(false);
+    setShowModal(false)
+    dispatch(addWatchlistAnime(anime));
   };
 
   return (
@@ -38,28 +34,19 @@ const AddShowForm = () => {
                   <button
                     className="p-1 ml-auto bg-transparent border-0 text-black opacity-5 float-right text-3xl leading-none font-semibold outline-none focus:outline-none"
                     onClick={() => setShowModal(false)}
-                  >
-                    <span className="bg-transparent text-black opacity-5 h-6 w-6 text-2xl block outline-none focus:outline-none">
-                      ×
-                    </span>
-                  </button>
+                  />
                 </div>
-
-              
-
                 <Formik
                   initialValues={{
                     name: "",
                     rating: "",
-                    cateogry: "",
                     publisher: "",
-                    showText: "",
+                    aboutText: "",
                   }}
                   onSubmit={handleSubmit}
                 >
                   <Form>
                     <div className="relative p-6 flex-auto">
-                      <p className="my-4 text-slate-500 text-lg leading-relaxed"> </p>
                         <div className="space-y-12 sm:space-y-16 bg-white">
                           <div>
                             <p className="mt-1 max-w-2xl text-sm leading-6 text-gray-600">
@@ -74,18 +61,15 @@ const AddShowForm = () => {
                                 >
                                   TV Show Name
                                 </label>
-                                <div className="mt-2 sm:col-span-2 sm:mt-0">
-                                  <div className="flex rounded-md shadow-sm ring-1 ring-inset ring-gray-300 focus-within:ring-2 focus-within:ring-inset focus-within:ring-indigo-600 sm:max-w-md">
+                                  <div className="flex rounded-md shadow-sm ring-1 ring-inset ring-gray-300 focus-within:ring-2 focus-within:ring-inset focus-within:ring-indigo-600 sm:max-w-md mt-2 sm:col-span-2 sm:mt-0">
                                     <Field
                                       type="text"
-                                      name="username"
-                                      id="username"
-                                      autoComplete="username"
+                                      name="name"
+                                      id="name"
                                       className="block flex-1 border-0 bg-transparent py-1.5 pl-1 text-gray-900 placeholder:text-gray-400 focus:ring-0 sm:text-sm sm:leading-6"
                                       placeholder="Naruto"
                                     />
                                   </div>
-                                </div>
                               </div>
                               <div className="mt-10 space-y-8 border-b border-gray-900/10 pb-12 sm:space-y-0 sm:divide-y sm:divide-gray-900/10 sm:border-t sm:pb-0">
                                 <div className="sm:grid sm:grid-cols-3 sm:items-start sm:gap-4 sm:py-6">
@@ -145,12 +129,12 @@ const AddShowForm = () => {
                                   About
                                 </label>
                                 <div className="mt-2 sm:col-span-2 sm:mt-0">
-                                  <textarea
-                                    id="about"
-                                    name="about"
+                                  <Field
+                                    id="aboutText"
+                                    as="textarea"
+                                    name="aboutText"
                                     rows={3}
                                     className="block w-full max-w-2xl rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
-                                    defaultValue={""}
                                   />
                                   <p className="mt-3 text-sm leading-6 text-gray-600">
                                     Write a few sentences about the show you're
@@ -164,25 +148,25 @@ const AddShowForm = () => {
                         </div>
                       
                     </div>
-                 
-           
-                <div className="flex items-center justify-end p-6 border-t border-solid border-slate-200 rounded-b">
-                  <button
-                    className="text-red-500 background-transparent font-bold uppercase px-6 py-2 text-sm outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
-                    type="button"
-                    onClick={() => setShowModal(false)}
-                  >
-                    Close
-                  </button>
-                  <button
-                    className="bg-emerald-500 text-white active:bg-emerald-600 font-bold uppercase text-sm px-6 py-3 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
-                    type="button"
-                    onSubmit={(handleSubmit)}
-                    onClick={() => setShowModal(false)}
-                  >
-                    Add Show
-                  </button>
-                </div>
+
+
+                  <div className="flex items-center justify-end p-6 border-t border-solid border-slate-200 rounded-b">
+                    <button
+                      id='close-form-button'
+                      className="text-red-500 background-transparent font-bold uppercase px-6 py-2 text-sm outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
+                      type="button"
+                      onClick={() => setShowModal(false)}
+                    >
+                      Close
+                    </button>
+                    <button
+                      id='submit-form-button'
+                      className="bg-emerald-500 text-white active:bg-emerald-600 font-bold uppercase text-sm px-6 py-3 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
+                      type="submit"
+                    >
+                      Add Show
+                    </button>
+                  </div>
                 </Form>
           </Formik>
           </div>
@@ -195,5 +179,4 @@ const AddShowForm = () => {
    )
    
 };
-
 export default AddShowForm

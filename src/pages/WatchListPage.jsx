@@ -1,15 +1,17 @@
+import AddShowForm from "../components/AddShowForm";
+import AnimeDetails from "../components/AnimeDetails";
 
-import AddShowForm from "../components/AddShowForm"
-
-
-export default function WatchListPage () {
-
-    return(
-    
-       <AddShowForm>
-            
-       </AddShowForm>
-    
-)
-}
-
+export default function WatchListPage ({ dispatch, watchlistAnimes }) {
+    return (
+        <>
+            <AddShowForm dispatch={dispatch} />
+            {watchlistAnimes.map(watchlistAnime => {
+                return (
+                    <div key={watchlistAnime.name}>
+                        <AnimeDetails anime={watchlistAnime} key={watchlistAnime.name} />
+                    </div>
+                );
+            })}
+        </>
+    );
+};

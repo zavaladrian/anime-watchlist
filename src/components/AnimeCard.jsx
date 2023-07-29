@@ -1,32 +1,25 @@
 import { Link } from "react-router-dom";
+import AnimeDetails from "./AnimeDetails";
 
 function AnimeCard(props) {
-  const animes = props.anime;
+  const anime = props.anime;
 
   return (
     <div className=" m-24 rounded-md py-2 my-5">
       <li className="flex flex-col divide-y divide-red-200 rounded-lg bg-white shadow shadow-orange-500">
         <img
-          src={animes.poster}
-          alt={animes.name}
+          src={anime.poster}
+          alt={anime.name}
           className="rounded-lg flex-shrink"
         />
         <div className="flex flex-1 flex-col p-8">
-          <h4 className="mt-1 text-xl font-medium text-gray-900">
-            {animes.name}
-          </h4>
-
-          <dl className="mt-1 flex flex-grow flex-col justify-between">
-            <dd>{animes.category}</dd>
-            <dd>{animes.rating}</dd>
-            <dd>{animes.publisher}</dd>
-          </dl>
+          <AnimeDetails anime={anime} />
           <div className='justify-between text-center space-x-4 space-y-4 '>
           <Link
-            to={"/anime/" + animes.id}
+            to={"/anime/" + anime.id}
             type="button"
             className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full"
-            aria-label={`More details about ${animes.name}`}
+            aria-label={`More details about ${anime.name}`}
             role="button"
           >
             <p className="text-center">Details</p>

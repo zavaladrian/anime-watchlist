@@ -35,7 +35,7 @@ export default function FilterPage({animesList}) {
           className="rounded bg-indigo-600 py-1 text-l font-semibold text-white shadow-sm hover:bg-orange-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 me-2 px-24"
           onClick={() => setRatingFilter("TV-MA")}>TV-MA</button>
        
-       <div className='grid grid-cols-2'>
+       <div className='grid lg:grid-cols-2 md:grid-cols-2 sm:gril-cols-1'>
        { filteredAnimes.map( a => <AnimeCard anime={a} key={a.id} />)} 
        </div>
     </div>
