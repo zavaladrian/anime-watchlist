@@ -30,12 +30,12 @@ function AnimeCard(props) {
 
   return (
     <div className={`m-4 rounded-md p-2 ${isAddedToWatchlist ? 'bg-gray-100' : 'bg-white'}`}>
-      <li className="flex flex-col divide-y divide-red-200 rounded-lg shadow shadow-orange-500">
+      <li className="flex flex-col divide-y divide-red-200 rounded-lg shadow ">
         {isAddedToWatchlist ? null : (
           <img
             src={anime.poster}
             alt={anime.name}
-            className="rounded-lg flex-shrink"
+            className="rounded-lg flex-shrink hover:sepia"
           />
         )}
         <div className="flex flex-1 flex-col p-4">
@@ -55,10 +55,10 @@ function AnimeCard(props) {
             )}
             {!isAddedToWatchlist && (
               <Link
-                to={"/watchlist/"}
+                
                 onClick={() => addToWatchlist(anime)}
                 type="button"
-                className="bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded"
+                className="bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded cursor-grab"
                 aria-label={`Your Watchlist`}
                 role="button"
               >

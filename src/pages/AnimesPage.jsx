@@ -1,28 +1,59 @@
 import { useParams } from "react-router-dom"
+import { useWatchlist } from "../watchlist/WatchListContext";
 
-export default function AnimesPage({animesList}) {
-    let { animeId } = useParams()
-    animeId = parseInt(animeId)
+import { Link } from "react-router-dom";
 
-    const animes = animesList.find(a => a.id === animeId)
+export default function AnimesPage({ animesList }) {
+  let { animeId } = useParams();
+  animeId = parseInt(animeId);
 
-    if(!animes) {
-        return <h2> Anime Not Found</h2>
-    }
+  const animes = animesList.find((a) => a.id === animeId);
 
-    return (
-        <div className='text-center'>
-          <br />
-          <h3 className='text-6xl text-black'>{animes.name}</h3>
-          <br />
-          <div style={{ display: 'flex', justifyContent: 'center' }}>
-            <img src={animes.poster} alt={animes.name} style={{ maxWidth: '80%', height: 'auto' }} />
-          </div>
-          < br />
-          < br />
-          <p className='text-5xl bg-black bg-opacity-50 text-black'>{animes.aboutText}</p>
-          < br />
-          <p className='text-3xl text-opacity-80'>This show has a {animes.rating} rating </p>
+  if (!animes) {
+    return <h2> Anime Not Found</h2>;
+  }
+
+  const { addToWatchlist } = useWatchlist();
+
+  const handleAddToWatchlist = () => {
+    addToWatchlist(animes);
+  };
+
+  return (
+      <div className="text-center">
+        <br />
+        <h3 className="text-6xl text-black">{animes.name}</h3>
+        <br />
+        <div style={{ display: "flex", justifyContent: "center" }}>
+          <img
+            src={animes.poster}
+            alt={animes.name}
+            style={{ maxWidth: "80%", height: "auto" }}
+          />
         </div>
-      );
-    }
+        <br />
+        <br />
+        <p className="text-5xl text-black">{animes.aboutText}</p>
+        <br />
+        <p className="text-3xl text-opacity-80">This show has a {animes.rating} rating</p>
+        <br />
+        <div className="space-x-5">
+        <button
+        className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full cursor-grab"
+        onClick={handleAddToWatchlist}
+        aria-label="Add to Watchlist and go to Watchlist"
+      >
+        <p className="text-center">Add to Watchlist</p>
+      </button>
+      
+      <Link to="/watchlist">
+        <button className="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded-full">
+          <p className="text-center">Go to Watchlist</p>
+        </button>
+        
+      </Link>
+      </div>
+      </div>
+    
+  );
+}

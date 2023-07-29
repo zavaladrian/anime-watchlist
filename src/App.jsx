@@ -19,7 +19,7 @@ function App() {
   const [animesList, setAnimesLists]= useState( TEST_ANIMES )
 
   return (
-    <div>
+    <div className='bg-gradient-to-b from-indigo-500 via-purple-500 to-pink-500'  >
       <Header />
       <Navbar />
 
@@ -31,7 +31,8 @@ function App() {
         <Route path="/watchlist" element={ <WatchListPage dispatch={dispatch} watchlistAnimes={watchlistAnimes} />}/>
       </Routes> 
 
-      <Footer className=' bottom-auto fixed' />   
+      <Footer className=' bottom-auto fixed' /> 
+
     </div>
   );
 }
