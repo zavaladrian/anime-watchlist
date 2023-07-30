@@ -25,9 +25,9 @@ function App() {
 
       <Routes>
         <Route path="/" element={ <HomePage animesList={animesList} />} />
-        <Route path="/filter" element={ <FilterPage animesList={animesList} />} />
+        <Route path="/filter" element={ <FilterPage animesList={animesList} dispatch={dispatch} watchlist={watchlistAnimes} />} />
         <Route path="/random" element={ <RandomAnimePage animesList={animesList} />}/>
-        <Route path="/anime/:animeId" element={ <AnimesPage animesList={animesList}/>} />
+        <Route path="/anime/:animeId" element={ <AnimesPage animesList={animesList} dispatch={dispatch}/>} />
         <Route path="/watchlist" element={ <WatchListPage dispatch={dispatch} watchlistAnimes={watchlistAnimes} />}/>
       </Routes> 
 

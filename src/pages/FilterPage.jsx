@@ -3,7 +3,7 @@ import AnimeCard from "../components/AnimeCard";
 
 
 
-export default function FilterPage({animesList}) {
+export default function FilterPage({animesList, dispatch, watchlist}) {
   const [ratingFilter, setRatingFilter] = useState("All")
 
   let filteredAnimes
@@ -51,7 +51,7 @@ export default function FilterPage({animesList}) {
 
       <div className="grid lg:grid-cols-2 md:grid-cols-2 sm:grid-cols-1">
         {filteredAnimes.map((a) => (
-          <AnimeCard anime={a} key={a.id} />
+          <AnimeCard anime={a} key={a.id} dispatch={dispatch} watchlist={watchlist} />
         ))}
       </div>
     </div>

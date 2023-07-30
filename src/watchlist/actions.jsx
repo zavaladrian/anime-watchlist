@@ -9,4 +9,11 @@ const addWatchlistAnime = (anime) => {
     };
 };
 
-export { ACTIONS, addWatchlistAnime };
+const removeWatchListAnime = (anime) =>{
+    return{
+        type: ACTIONS.REMOVE_WATCHLIST_ANIME,
+        playload: { anime}
+    };
+}
+
+export { ACTIONS, addWatchlistAnime, removeWatchListAnime };

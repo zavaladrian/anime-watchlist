@@ -36,7 +36,7 @@ const navigation = [
     },
     {
       name: 'GitHub',
-      href: 'https://github.com/zavaladrian',
+      href: 'https://github.com/zavaladrian/anime-watchlist',
       icon: (props) => (
         <svg fill="currentColor" viewBox="0 0 24 24" {...props}>
           <path

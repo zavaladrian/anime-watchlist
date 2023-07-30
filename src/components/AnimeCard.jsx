@@ -1,15 +1,19 @@
 // AnimeCard.js
 import React from "react";
 import { Link } from "react-router-dom";
-import { useWatchlist } from "../watchlist/WatchListContext";
 import AnimeDetails from "./AnimeDetails";
+import {removeWatchListAnime} from "../watchlist/actions"
 
 
-function RemoveButton({ animeId }) {
-  const { removeFromWatchlist } = useWatchlist();
-
-  const handleRemove = () => {
-    removeFromWatchlist(animeId);
+function RemoveButton({ dispatch }) {
+  const handleRemove= (values) => {
+    const anime = {
+      name: values.name || "Untitled",
+      rating: values.rating || "NR",
+      publisher: values.publisher,
+      aboutText: values.aboutText,
+    };
+    dispatch(removeWatchListAnime(anime));
   };
 
   return (
@@ -23,13 +27,15 @@ function RemoveButton({ animeId }) {
   );
 }
 
-function AnimeCard(props) {
-  const anime = props.anime;
-  const { addToWatchlist, watchlist } = useWatchlist();
+function AnimeCard({ anime, watchlist, dispatch }) {
   const isAddedToWatchlist = watchlist.some((item) => item.id === anime.id);
 
   return (
-    <div className={`m-4 rounded-md p-2 ${isAddedToWatchlist ? 'bg-gray-100' : 'bg-white'}`}>
+    <div
+      className={`m-4 rounded-md p-2 ${
+        isAddedToWatchlist ? "bg-gray-100" : "bg-white"
+      }`}
+    >
       <li className="flex flex-col divide-y divide-red-200 rounded-lg shadow ">
         {isAddedToWatchlist ? null : (
           <img
@@ -51,11 +57,10 @@ function AnimeCard(props) {
               <p className="text-center">Details</p>
             </Link>
             {isAddedToWatchlist && (
-              <RemoveButton animeId={anime.id} />
+              <RemoveButton animeId={anime.id} dispatch={dispatch} />
             )}
             {!isAddedToWatchlist && (
               <Link
-                
                 onClick={() => addToWatchlist(anime)}
                 type="button"
                 className="bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded cursor-grab"
