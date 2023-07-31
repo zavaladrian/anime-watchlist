@@ -1,5 +1,6 @@
 const ACTIONS = {
     ADD_WATCHLIST_ANIME: 'addWatchlistAnime',
+    REMOVE_WATCHLIST_ANIME: "REMOVE_WATCHLIST_ANIME",
 };
 
 const addWatchlistAnime = (anime) => {
@@ -9,10 +10,10 @@ const addWatchlistAnime = (anime) => {
     };
 };
 
-const removeWatchListAnime = (anime) =>{
+const removeWatchListAnime = (animeId) =>{
     return{
         type: ACTIONS.REMOVE_WATCHLIST_ANIME,
-        playload: { anime}
+        id: animeId,
     };
 }
 

@@ -1,9 +1,8 @@
 import { useParams } from "react-router-dom";
-
 import { Link } from "react-router-dom";
-import { addWatchlistAnime } from "../watchlist/actions";
 
-export default function AnimesPage({ animesList, dispatch }) {
+
+export default function AnimesPage({ animesList }) {
   let { animeId } = useParams();
   animeId = parseInt(animeId);
 
@@ -12,10 +11,6 @@ export default function AnimesPage({ animesList, dispatch }) {
   if (!animes) {
     return <h2> Anime Not Found</h2>;
   }
-
-  const handleAddToWatchlist = () => {
-    dispatch(addWatchlistAnime({ anime: animes }));
-  };
 
   return (
     <div className="text-center">
@@ -38,17 +33,9 @@ export default function AnimesPage({ animesList, dispatch }) {
       </p>
       <br />
       <div className="space-x-5">
-        <button
-          className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full cursor-grab"
-          onClick={handleAddToWatchlist}
-          aria-label="Add to Watchlist and go to Watchlist"
-        >
-          <p className="text-center">Add to Watchlist</p>
-        </button>
-
-        <Link to="/watchlist">
+        <Link to="/filter">
           <button className="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded-full">
-            <p className="text-center">Go to Watchlist</p>
+            <p className="text-center">Go Back</p>
           </button>
         </Link>
       </div>

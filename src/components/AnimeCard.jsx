@@ -2,19 +2,15 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import AnimeDetails from "./AnimeDetails";
-import {removeWatchListAnime} from "../watchlist/actions"
+import { removeWatchListAnime, addWatchlistAnime} from "../watchlist/actions"
 
 
-function RemoveButton({ dispatch }) {
-  const handleRemove= (values) => {
-    const anime = {
-      name: values.name || "Untitled",
-      rating: values.rating || "NR",
-      publisher: values.publisher,
-      aboutText: values.aboutText,
-    };
-    dispatch(removeWatchListAnime(anime));
+
+function RemoveButton({ anime, dispatch }) {
+  const handleRemove = () => {
+    dispatch(removeWatchListAnime(anime.id));
   };
+
 
   return (
     <button
@@ -30,8 +26,12 @@ function RemoveButton({ dispatch }) {
 function AnimeCard({ anime, watchlist, dispatch }) {
   const isAddedToWatchlist = watchlist.some((item) => item.id === anime.id);
 
+  const handleAddToWatchlist = () => {
+    dispatch(addWatchlistAnime(anime));
+  }; 
+
   return (
-    <div
+     <div
       className={`m-4 rounded-md p-2 ${
         isAddedToWatchlist ? "bg-gray-100" : "bg-white"
       }`}
@@ -56,17 +56,21 @@ function AnimeCard({ anime, watchlist, dispatch }) {
             >
               <p className="text-center">Details</p>
             </Link>
+
+
             {isAddedToWatchlist && (
-              <RemoveButton animeId={anime.id} dispatch={dispatch} />
-            )}
+            <RemoveButton anime={anime} dispatch={dispatch} />
+          )}
+
+
             {!isAddedToWatchlist && (
               <Link
-                onClick={() => addToWatchlist(anime)}
-                type="button"
-                className="bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded cursor-grab"
-                aria-label={`Your Watchlist`}
-                role="button"
-              >
+              onClick={handleAddToWatchlist}
+              type="button"
+              className="bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded cursor-grab"
+              aria-label={`Your Watchlist`}
+              role="button"
+            >
                 <p className="text-center">Add</p>
               </Link>
             )}

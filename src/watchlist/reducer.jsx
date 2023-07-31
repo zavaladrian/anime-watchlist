@@ -9,7 +9,6 @@ const reducer = (watchlistAnimes, action) => {
         case ACTIONS.REMOVE_WATCHLIST_ANIME:{
             return watchlistAnimes.filter((anime)=>anime.id !== action.id)
         }
-        //delete action
       }
       
       throw Error('Unknown action: ' + action.type);
