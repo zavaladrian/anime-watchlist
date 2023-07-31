@@ -35,7 +35,12 @@ export default function AnimesPage({ animesList }) {
       <div className="space-x-5">
         <Link to="/filter">
           <button className="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded-full">
-            <p className="text-center">Go Back</p>
+            <p className="text-center">Go Back to Filter Page</p>
+          </button>
+        </Link>
+        <Link to="/watchlist">
+          <button className="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded-full">
+            <p className="text-center">Go Watchlist</p>
           </button>
         </Link>
       </div>
