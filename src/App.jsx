@@ -1,5 +1,4 @@
 import Navbar from "./components/Navbar";
-import Header from "./components/Header";
 import Footer from "./components/Footer";
 import { Route, Routes} from "react-router-dom";
 import { TEST_ANIMES } from "./Lists/TEST_ANIMES";
@@ -20,7 +19,6 @@ function App() {
 
   return (
     <div className='bg-gradient-to-b from-indigo-500 via-purple-500 to-pink-500'  >
-      <Header />
       <Navbar />
 
       <Routes>

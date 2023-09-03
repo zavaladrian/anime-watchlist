@@ -1,59 +1,58 @@
 import { useState } from "react";
 import AnimeCard from "../components/AnimeCard";
-
-
+import { FadeIn } from "../components/FadeIn";
 
 export default function FilterPage({animesList, dispatch, watchlist}) {
-  const [ratingFilter, setRatingFilter] = useState("All")
-
+  const [toptenFilter, settoptenFilter] = useState("All")
   let filteredAnimes
 
-  if (ratingFilter === "All") {
+  if (toptenFilter === "All") {
     filteredAnimes = animesList
   } else {
-    filteredAnimes =animesList.filter(anime => anime.rating === ratingFilter)
+    filteredAnimes =animesList.filter(anime => anime.topten.includes(toptenFilter))
   }
 
   return (
-    <div className="text-center row-auto inset-0">
-      <h2 className='text-4xl m-4 font-semibold animate-pulse text-red-300 font-nuito	'>Filter By TV Ratings!</h2>
+    <div className="text-center row-auto inset-0 ">
+      <h2 className='text-7xl m-4 font-semibold text-white font-nuito	'> Suggestions!</h2>
 
-      <div className="flex justify-center flex-wrap"> 
+      <div className="sm:flex sm:justify-center sm:flex-wrap my-5 flex-auto "> 
         <button
           type="button"
-          className="rounded bg-red-950 py-1 text-l font-semibold text-white shadow-sm hover:bg-orange-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 me-2 px-8 sm:px-12"
-          onClick={() => setRatingFilter("All")}
+          className="rounded bg-pink-500 py-1 text-l font-semibold text-white shadow-sm hover:bg-purple-800 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 me-2 px-12 sm:px-8"
+          onClick={() => settoptenFilter("All")}
         >
           All
         </button>
         <button
           type="button"
-          className="rounded bg-red-950 py-1 text-l font-semibold text-white shadow-sm hover:bg-orange-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 me-2 px-8 sm:px-12"
-          onClick={() => setRatingFilter("TV-PG")}
+          className="rounded bg-pink-500  py-1 text-l font-semibold text-white shadow-sm hover:bg-purple-800 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 me-2 px-8 sm:px-12"
+          onClick={() => settoptenFilter("IMBD")}
         >
-          TV-PG
+          IMBD's Top Ten
         </button>
         <button
           type="button"
-          className="rounded bg-red-950 py-1 text-l font-semibold text-white shadow-sm hover:bg-orange-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 me-2 px-8 sm:px-12"
-          onClick={() => setRatingFilter("TV-14")}
+          className="rounded bg-pink-500  py-1 text-l font-semibold text-white shadow-sm hover:bg-purple-800 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 me-2 px-8 sm:px-12"
+          onClick={() => settoptenFilter("CBR")}
         >
-          TV-14
+          CBR's Top Ten
         </button>
         <button
           type="button"
-          className="rounded bg-red-950 py-1 text-l font-semibold text-white shadow-sm hover:bg-orange-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 me-2 px-8 sm:px-12"
-          onClick={() => setRatingFilter("TV-MA")}
+          className="rounded bg-pink-500  py-1 text-l font-semibold text-white shadow-sm hover:bg-purple-800 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 me-2 px-12 sm:px-8"
+          onClick={() => settoptenFilter("AZ")}
         >
-          TV-MA
+          Our Top Ten Suggestions!
         </button>
       </div>
-
-      <div className="grid lg:grid-cols-2 md:grid-cols-2 sm:grid-cols-1">
+<FadeIn>
+      <div className="grid lg:grid-cols-5 md:grid-cols-2 sm:grid-cols-1">
         {filteredAnimes.map((a) => (
           <AnimeCard anime={a} key={a.id} dispatch={dispatch} watchlist={watchlist} />
         ))}
       </div>
+      </FadeIn>
     </div>
   );
 }

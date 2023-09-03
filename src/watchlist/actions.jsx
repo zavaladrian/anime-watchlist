@@ -6,7 +6,8 @@ const ACTIONS = {
 const addWatchlistAnime = (anime) => {
     return {
         type: ACTIONS.ADD_WATCHLIST_ANIME,
-        payload: { anime }
+        payload: { anime },
+        id: anime,
     };
 };
 

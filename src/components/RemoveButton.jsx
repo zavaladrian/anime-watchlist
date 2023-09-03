@@ -1,10 +1,8 @@
-import React from "react";
+import { removeWatchListAnime } from "../watchlist/actions";
 
-function RemoveButton({ animeId }) {
-  const { removeFromWatchlist } = useWatchlist();
-
+function RemoveButton({ anime, dispatch }) {
   const handleRemove = () => {
-    removeFromWatchlist(animeId);
+    dispatch(removeWatchListAnime(anime.id));
   };
 
   return (
@@ -18,4 +16,4 @@ function RemoveButton({ animeId }) {
   );
 }
 
-export default RemoveButton;
+export default RemoveButton

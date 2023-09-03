@@ -1,15 +1,19 @@
 import { useState } from "react";
 import { Formik, Field, Form } from "formik";
 import { addWatchlistAnime } from "../watchlist/actions";
+import SearchAnime from "./SearchAnime";
+import ImageUpload from "./imageUpload";
+
 
 const AddShowForm = ({ dispatch }) => {
   const [showModal, setShowModal] = useState(false);
   const handleSubmit = (values) => {
     const anime = {
       name: values.name || "Untitled",
-      rating: values.rating || "NR",
+      category: values.category || "NR",
       publisher: values.publisher,
-      aboutText: values.aboutText,
+      text: values.text,
+      image: values.poster,
     };
     setShowModal(false);
     dispatch(addWatchlistAnime(anime));
@@ -39,9 +43,10 @@ const AddShowForm = ({ dispatch }) => {
                 <Formik
                   initialValues={{
                     name: "",
-                    rating: "",
+                    category: "",
                     publisher: "",
-                    aboutText: "",
+                    text: "",
+                    image:""
                   }}
                   onSubmit={handleSubmit}
                 >
@@ -74,26 +79,29 @@ const AddShowForm = ({ dispatch }) => {
                             <div className="mt-10 space-y-8 border-b border-gray-900/10 pb-12 sm:space-y-0 sm:divide-y sm:divide-gray-900/10 sm:border-t sm:pb-0">
                               <div className="sm:grid sm:grid-cols-3 sm:items-start sm:gap-4 sm:py-6">
                                 <label
-                                  htmlFor="rating"
+                                  htmlFor="category"
                                   className="block text-sm font-medium leading-6 text-gray-900 sm:pt-1.5"
                                 >
-                                  TV Rating
+                                  TV Category
                                 </label>
                                 <div className="mt-2 sm:col-span-2 sm:mt-0">
                                   <div className="flex rounded-md shadow-sm bg-red-100 ring-1 ring-inset ring-gray-300 focus-within:ring-2 focus-within:ring-inset focus-within:ring-indigo-600 sm:max-w-md">
                                     <Field
                                       type="text"
-                                      name="rating"
+                                      name="category"
                                       as="select"
-                                      id="rating"
+                                      id="category"
                                       autoComplete=""
                                       className="block flex-1 border-0 bg-transparent py-1.5 pl-1 text-gray-900 placeholder:text-gray-400 focus:ring-0 sm:text-sm sm:leading-6"
-                                      placeholder="TV-PG"
+                                      placeholder="Best Describes The Show"
                                     >
                                       <option>Select...</option>
-                                      <option>TV-PG</option>
-                                      <option>TV-14</option>
-                                      <option>TV-MA</option>
+                                      <option>Adventure</option>
+                                      <option>Action</option>
+                                      <option>Thriller</option>
+                                      <option>Drama</option>
+                                      <option>Romance</option>
+                                      <option>Sci-Fi</option>
                                     </Field>
                                   </div>
                                 </div>
@@ -130,9 +138,9 @@ const AddShowForm = ({ dispatch }) => {
                               </label>
                               <div className="mt-2 sm:col-span-2 sm:mt-0">
                                 <Field
-                                  id="aboutText"
+                                  id="text"
                                   as="textarea"
-                                  name="aboutText"
+                                  name="text"
                                   rows={3}
                                   className="block w-full max-w-2xl rounded-md border-0  py-1.5 bg-red-100 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                                 />
@@ -143,6 +151,22 @@ const AddShowForm = ({ dispatch }) => {
                                 <div className=" text-right m-5 "></div>
                               </div>
                             </div>
+
+                            {/* <div className="sm:grid sm:grid-cols-3 sm:items-start sm:gap-4 sm:py-6">
+                                <label
+                                  htmlFor="image"
+                                  className="block text-sm font-medium leading-6 text-gray-900 sm:pt-1.5"
+                                >
+                                  Optional Image: 
+                                </label>
+                                <div className="mt-2 sm:col-span-2 sm:mt-0">
+                                  <div className="flex rounded-md shadow-sm bg-red-100 ring-1 ring-inset ring-gray-300 focus-within:ring-2 focus-within:ring-inset focus-within:ring-indigo-600 sm:max-w-md">
+                                  <ImageUpload /> 
+                                  </div>
+                                </div>
+                              </div> */}
+                           
+
                           </div>
                         </div>
                       </div>
@@ -164,6 +188,7 @@ const AddShowForm = ({ dispatch }) => {
                       >
                         Add Show
                       </button>
+                      {/* <SearchAnime /> */}
                     </div>
                   </Form>
                 </Formik>
