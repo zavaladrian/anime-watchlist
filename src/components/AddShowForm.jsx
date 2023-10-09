@@ -1,8 +1,7 @@
 import { useState } from "react";
 import { Formik, Field, Form } from "formik";
 import { addWatchlistAnime } from "../watchlist/actions";
-import SearchAnime from "./SearchAnime";
-import ImageUpload from "./imageUpload";
+
 
 
 const AddShowForm = ({ dispatch }) => {

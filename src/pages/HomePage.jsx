@@ -37,7 +37,7 @@ function HomePage() {
               to watch, discover new series, and ensure you don't miss out on
               hidden gems.
               <br />
-              - You can began with our suggestions or you can look at curated list and add straight to your watchlist!
+              - You can begin with our suggestions or you can look at curated list and add straight to your watchlist!
               <br />
               -Or if you are feeling adventurous, click on "What should I watch tonight", which will randomize a show from the suggestions!
             </div>
